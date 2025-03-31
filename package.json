@@ -13,5 +13,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "Boilerplate code for Implementing Supubase user authentication and authorization",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theashutoshn/supabase-auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theashutoshn/supabase-auth/issues"
+  },
+  "homepage": "https://github.com/theashutoshn/supabase-auth#readme"
 }
