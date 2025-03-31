@@ -1,13 +1,13 @@
 # supabase-auth
  Boilerplate code for Implementing Supubase user authentication and authorization
 
-## Providers
+### Providers
 - Email
 - Gmail
 - X
 - Github
 
-## Setup
+### Setup
 The project includes
 - login.html
 - styl.css
