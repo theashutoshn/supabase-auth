@@ -1,11 +1,17 @@
 // Import Supabase client properly
-const supabaseUrl = 'https://uhfnuwjbqszsjtechohf.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVoZm51d2picXN6c2p0ZWNob2hmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM0MTU2NTUsImV4cCI6MjA1ODk5MTY1NX0.81zmgnLIKslCnU1VmAEaXPVgG11g4_E7kxI50m5TL8Y';
+
+
+
+const supabaseUrl = 'https://jfsxeinyjeebbwxzuloc.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmc3hlaW55amVlYmJ3eHp1bG9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1MDk0MzksImV4cCI6MjA1OTA4NTQzOX0.BO3fc9Ujz8ZpvQMgLhY9yt7tpshftDZ9Ervi0kqWZRI';
+
+const messageBlock = document.getElementById('message');
 
 // Create the Supabase client correctly
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-document.getElementById('login-btn').addEventListener('click', async () => {
+document.getElementById('login-btn').addEventListener('click', async (e) => {
+    e.preventDefault(); // this is imporatnt as it will prevent reloading the page. reloading the page while cancel logging up 
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
     const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -16,7 +22,8 @@ document.getElementById('login-btn').addEventListener('click', async () => {
     }
 });
 
-document.getElementById('signup-btn').addEventListener('click', async () => {
+document.getElementById('signup-btn').addEventListener('click', async (e) => {
+    e.preventDefault(); // this is imporatnt as it will prevent reloading the page. reloading the page while cancel signing up 
     const email = document.getElementById('signup-email').value;
     const password = document.getElementById('signup-password').value;
     const { data, error } = await supabase.auth.signUp({ email, password });
@@ -28,7 +35,7 @@ document.getElementById('signup-btn').addEventListener('click', async () => {
 });
 
 function displayMessage(msg) {
-    document.getElementById('message').textContent = msg;
+    messageBlock.textContent = msg;
 }
 
 function toggleForm() {

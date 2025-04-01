@@ -16,6 +16,13 @@ body {
     background-color: #f4f4f9;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-container {
     width: 400px;
     border-radius: 0.75rem;
