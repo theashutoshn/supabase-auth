@@ -1,38 +1,83 @@
-// Import Supabase client properly
+
 
 
 
 const supabaseUrl = 'https://jfsxeinyjeebbwxzuloc.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmc3hlaW55amVlYmJ3eHp1bG9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1MDk0MzksImV4cCI6MjA1OTA4NTQzOX0.BO3fc9Ujz8ZpvQMgLhY9yt7tpshftDZ9Ervi0kqWZRI';
 
+const loginBtn = document.getElementById('login-btn');
+const signupBtn = document.getElementById('signup-btn');
+const resetBtn = document.getElementById('reset-btn');
+const confirmPassBtn = document.getElementById('confirmPass-btn');
 const messageBlock = document.getElementById('message');
 
 // Create the Supabase client correctly
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-document.getElementById('login-btn').addEventListener('click', async (e) => {
-    e.preventDefault(); // this is imporatnt as it will prevent reloading the page. reloading the page while cancel logging up 
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) {
-        displayMessage(error.message);
-    } else {
-        window.location.href = 'dashboard.html';
-    }
-});
+if (loginBtn) {
 
-document.getElementById('signup-btn').addEventListener('click', async (e) => {
-    e.preventDefault(); // this is imporatnt as it will prevent reloading the page. reloading the page while cancel signing up 
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
-    const { data, error } = await supabase.auth.signUp({ email, password });
-    if (error) {
-        displayMessage(error.message);
-    } else {
-        displayMessage('Signup successful!');
-    }
-});
+    loginBtn.addEventListener('click', async (e) => {
+        e.preventDefault(); // this is imporatnt as it will prevent reloading the page. reloading the page while cancel logging up 
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) {
+            displayMessage(error.message);
+        } else {
+            window.location.href = 'dashboard.html';
+        }
+    });
+}
+
+if (signupBtn) {
+
+    signupBtn.addEventListener('click', async (e) => {
+        e.preventDefault(); // this is imporatnt as it will prevent reloading the page. reloading the page while cancel signing up 
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+        const { data, error } = await supabase.auth.signUp({ email, password });
+        if (error) {
+            displayMessage(error.message);
+        } else {
+            displayMessage('Signup successful!');
+        }
+    });
+}
+
+if (resetBtn) {
+
+    resetBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('reset-email').value;
+
+        const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: '/reset-password.html',
+        });
+        if (error) {
+            displayMessage(error.message);
+        } else {
+            displayMessage('Password reset link sent!');
+        }
+    });
+}
+
+if (confirmPassBtn) {
+
+    resetBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('confirmPass-btn').value;
+
+        const { data, error } = await supabase.auth.updateUser({
+            email: email
+        });
+        if (error) {
+            displayMessage(error.message);
+        } else {
+            displayMessage('New password set!');
+        }
+    });
+}
+
 
 function displayMessage(msg) {
     messageBlock.textContent = msg;

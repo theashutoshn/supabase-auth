@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Auth System</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Import Supabase JS properly -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Define createClient globally so it's available to script.js
+        const { createClient } = supabase;
+    </script>
+</head>
+
+<body>
+    <!-- From Uiverse.io by Yaya12085 -->
+    <div class="container">
+        <div class="form-container">
+            <form class="reset-form">
+                <p class="title">Forget Password</p>
+                <div class="input-group">
+                    <label>Email
+                        <input type="email" name="Email" id="reset-email" placeholder="">
+                    </label>
+                </div>
+                <button class="reset" id="reset-btn">Reset</button>
+            </form>
+        </div>
+        <div class="section-message">
+            <div id="message"></div>
+        </div>
+    </div>
+
+
+
+
+    <script src="login.js"></script>
+</body>
+
+</html>
