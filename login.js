@@ -1,18 +1,8 @@
-
-
-
-
-const supabaseUrl = 'https://jfsxeinyjeebbwxzuloc.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmc3hlaW55amVlYmJ3eHp1bG9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1MDk0MzksImV4cCI6MjA1OTA4NTQzOX0.BO3fc9Ujz8ZpvQMgLhY9yt7tpshftDZ9Ervi0kqWZRI';
-
 const loginBtn = document.getElementById('login-btn');
 const signupBtn = document.getElementById('signup-btn');
 const resetBtn = document.getElementById('reset-btn');
 const confirmPassBtn = document.getElementById('confirmPass-btn');
 const messageBlock = document.getElementById('message');
-
-// Create the Supabase client correctly
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 if (loginBtn) {
 
@@ -24,7 +14,7 @@ if (loginBtn) {
         if (error) {
             displayMessage(error.message);
         } else {
-            window.location.href = 'dashboard.html';
+            window.location.href = 'dashboard.html'; // define file/page path you need once user is successfully logged in
         }
     });
 }
@@ -40,6 +30,7 @@ if (signupBtn) {
             displayMessage(error.message);
         } else {
             displayMessage('Signup successful!');
+            window.location.href = '/login.html'; //  once user is successfully signed up, redriects to login page
         }
     });
 }
