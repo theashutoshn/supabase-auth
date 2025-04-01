@@ -42,7 +42,7 @@ if (resetBtn) {
         const email = document.getElementById('reset-email').value;
 
         const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-            redirectTo: '/reset-password.html',
+            redirectTo: 'http://127.0.0.1:5500/reset-password.html',
         });
         if (error) {
             displayMessage(error.message);
