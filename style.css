@@ -99,19 +99,7 @@ textarea {
     text-decoration: underline rgba(167, 139, 250, 1);
 }
 
-.log {
-    display: block;
-    width: 100%;
-    background-color: rgba(167, 139, 250, 1);
-    padding: 0.75rem;
-    text-align: center;
-    color: rgba(17, 24, 39, 1);
-    border: none;
-    border-radius: 0.375rem;
-    font-weight: 600;
-}
-
-.sign {
+.button {
     display: block;
     width: 100%;
     background-color: rgba(167, 139, 250, 1);
@@ -122,6 +110,7 @@ textarea {
     border-radius: 0.375rem;
     font-weight: 600;
     margin-top: 30px;
+    cursor: pointer;
 }
 
 .reset {
@@ -176,6 +165,7 @@ textarea {
 .social-icons {
     display: flex;
     justify-content: center;
+
 }
 
 .social-icons .icon {
@@ -190,6 +180,7 @@ textarea {
     height: 1.25rem;
     width: 1.25rem;
     fill: #fff;
+    cursor: pointer;
 }
 
 .signup {

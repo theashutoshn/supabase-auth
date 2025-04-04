@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <script>
         // Define createClient globally so it's available to script.js
@@ -12,9 +13,10 @@
 </head>
 
 <body>
-    <h2>Welcome to the Dashboard!</h2>
-    <button id="logout-btn">Logout</button>
-
+    <div class="container">
+        <h2>Welcome to the Dashboard!</h2>
+        <button class="button" id="logout-btn">Logout</button>
+    </div>
 
 
     <script src="supabaseClient.js"></script>
