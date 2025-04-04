@@ -9,8 +9,9 @@ Built with plain HTML, CSS, and JavaScript — perfect for quickly bootstrapping
 - Protected Dashboard (for logged-in users only)
 - No frontend frameworks — easy to plug into any project
 - Built using **Supabase** Auth
+- Provider: Email and Google
 
-> ⚠️ This project does not include email confirmation, password strength validation, or social logins by default. You're encouraged to extend based on your needs.
+> ⚠️ This project does not include email confirmation, or password strength validation You're encouraged to extend based on your needs.
 >
 
 ## File Structure
