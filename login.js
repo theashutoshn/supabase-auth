@@ -3,6 +3,7 @@ const signupBtn = document.getElementById('signup-btn');
 const resetBtn = document.getElementById('reset-btn');
 const confirmPassBtn = document.getElementById('confirmPass-btn');
 const messageBlock = document.getElementById('message');
+const google = document.getElementById('google-login');
 
 if (loginBtn) {
 
@@ -67,6 +68,22 @@ if (confirmPassBtn) {
             displayMessage('New password set!');
         }
     });
+}
+
+if (google) {
+    google.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: 'http://127.0.0.1:5500/dashboard.html'
+            }
+        })
+        if (error) {
+            console.error('Error signing in with Google:', error.message);
+        }
+
+    })
 }
 
 
