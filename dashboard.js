@@ -1,6 +1,6 @@
 supabase.auth.getUser().then(({ data, error }) => {
     if (error || !data.user) {
-        window.location.href = 'index.html';
+        window.location.href = 'login.html';
     }
 });
 
