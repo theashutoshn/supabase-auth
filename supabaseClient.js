@@ -1,4 +1,5 @@
-const SUPABASE_URL = 'https://jfsxeinyjeebbwxzuloc.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Impmc3hlaW55amVlYmJ3eHp1bG9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1MDk0MzksImV4cCI6MjA1OTA4NTQzOX0.BO3fc9Ujz8ZpvQMgLhY9yt7tpshftDZ9Ervi0kqWZRI';
+import dotenv from "dotenv";
+dotenv.config();
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
